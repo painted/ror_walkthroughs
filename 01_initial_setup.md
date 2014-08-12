@@ -57,6 +57,6 @@ Rails App with Postgrsql (using Instagram as example)
 			<%= post.description %><BR>
 		<% end %><BR>
 	<% else %><BR>
-		'<h1>No posts yet</h1>'<BR>
+		No posts yet<BR>
 	<% end %><BR>
 30. rspec
