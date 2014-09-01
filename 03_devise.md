@@ -15,7 +15,7 @@ Adding Devise for Login<br>
 <br>
 Please note that when capitalized you should capitalize.<br>
 <br>
-1. Create contexts in the **controllername**_feature_spec.rb <br>
+1. Create contexts in the '**controllername**'_feature_spec.rb <br>
 add to the tests that you want the person to have to be logged in to do:<br>
 ```
 context 'logged in' do
