@@ -46,7 +46,7 @@ end<br>
 11. in create method add:<br>
 @**modelname** = **Modelname**.new(params[:**modelname**].permit(:**field**))  (add all text fields separated by a comma)<br>
 @**modelname**.save!<br>
-redirect_to posts_path<br>
+redirect_to **controllername**_path<br>
 12. rspec (should be all clear)<br>
 13. rails s (to see it in your browser)<br>
 14. in browser go to localhost/3000/**controllername** to see a list of the items<br>
