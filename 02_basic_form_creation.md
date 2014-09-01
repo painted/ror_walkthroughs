@@ -53,7 +53,7 @@ redirect_to **controllername**_path<br>
 15. in browser go to localhost/3000/**controllername**/new to see the form
 <br>
 <br>
-Adding additional fields no already in database<br>
+Adding additional fields not already in database<br>
 Any fields that are being created must be in the database.  If you want to add an additional field not included when making the model do a db migration using: <br>
 bin/rails g migration Add**Field**To**Controllername** **field**:**type**<br>
 bin/rake db:migrate <br>
