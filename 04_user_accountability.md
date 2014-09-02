@@ -14,7 +14,7 @@
 ```
 <br>
 Create a **function**_**controllername**_feature_spec.rb file in /spec/features.<br>
-Add the following test:<br>
+Add the following tests:<br>
 ```
 require 'rails_helper'
 
