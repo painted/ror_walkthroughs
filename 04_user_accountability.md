@@ -1,5 +1,3 @@
-#####In Progress
-
 ###User Accountability<br>
 <br>
 <br>
@@ -56,4 +54,36 @@ context 'logged in as another **modelname** creator' do
 	end
 end
 ```
-Run rspec
+Run rspec<br>
+First failure should be unknown attribute **devisemodel**<br>
+To fix this error run this in the terminal:<br>
+```
+bin/rails g migration Add**Devisename**IdTo**Controllername** **devisename**:belongs_to
+bin/rake db:migrate
+```
+Next add some code to the /models/**devisename**.rb:<br>
+```
+has_many :**controllername**
+```
+And in /models/**modelname**.rb:<br>
+```
+belongs_to :**devisemodel**
+```
+Run rspec<br>
+Most tests should now pass.<br>
+To make all pass we need to save the current **devisename** in the create function.<br>
+Therefore in /controllers/**controllername**_controller.rb add to the create method:<br>
+```
+@**modelname**.**devisename** = current_**devisename** (just before the save)
+```
+And in the same file in the **function** method add:<br>
+```
+@**modelname** = current_**devisemodel**.**controllername**.find params[:id]
+
+rescue ActiveRecord::RecordNotFound     (Add this at the bottom of the method)
+	flash[:notice] = 'You do not have permission to **Function** Example'
+ensure
+	redirect_to '/**controllername**'
+```
+Run rspec<br>
+Now everything should pass.
