@@ -80,9 +80,11 @@ And in the same file in the **function** method add:<br>
 @**modelname** = current_**devisemodel**.**controllername**.find params[:id]
 
 rescue ActiveRecord::RecordNotFound     (Add this at the bottom of the method)
+	Rails.logger.warn('WARNING: A user tried to **function** a **modelname**')
 	flash[:notice] = 'You do not have permission to **Function** Example'
 ensure
 	redirect_to '/**controllername**'
 ```
+The Rails.logger.warn line has been added so the action is advised in the log<br>
 Run rspec<br>
 Now everything should pass.
