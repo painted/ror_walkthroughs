@@ -56,5 +56,12 @@ bin/rails g paperclip **modelname** avatar
 
 bin/rake db:migrate
 ```
-Now we are ready to add the image field to our form. 
-
+Now we are ready to add the image field to our form.<br>
+So in /views/**controllername**/new.html.erb add the following field to your form:<br>
+```
+edit: <%= form_for @**modelname** do |f| %>
+to read: <%= form_for @**modelname**, html: { multipart: true } do |f| %>
+and add:	<%= f.label :avatar %>
+			<%= f.file_field :avatar %> 
+```
+Run rspec
