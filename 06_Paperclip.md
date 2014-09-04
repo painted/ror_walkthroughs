@@ -1,5 +1,3 @@
-###In Progress
-
 ##Paperclip<br>
 <br>
 ```
