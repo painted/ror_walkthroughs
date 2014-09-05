@@ -112,4 +112,5 @@ before:		<%= image_tag **modelname**.avatar.url(:thumb), class: 'uploaded-pic' %
 then: 	<% end %>		afterwards
 ```
 Run rspec<br>
-All tests should pass
+All tests should pass<br>
+Commit to github

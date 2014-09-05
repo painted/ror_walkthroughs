@@ -38,4 +38,5 @@ a {
 	color: $nicered;
 }
 ```
-The only difference that this has given is that the a (links) style can be nested in the class and variables, and extend classes can be created.
+The only difference that this has given is that the a (links) style can be nested in the class and variables, and extend classes can be created.<br>
+Commit to Github

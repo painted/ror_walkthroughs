@@ -59,4 +59,5 @@ Rails App with Postgrsql (using Instagram as example)
 	<% else %><BR>
 		No posts yet<BR>
 	<% end %><BR>
-30. rspec
+30. rspec<br>
+Commit to Github

@@ -107,7 +107,9 @@ Then add to **controllername**_feature_spec.rb in context logged in:<br>
 **devisemodel** = **Devisemodel**.create email: 's@s.com', password: '12345678', password_confirmation: '12345678'
 login_as **devisemodel**
 ```
-
+Run rspec<br>
+All tests should pass<br>
+Commit to Github
 
 
 
