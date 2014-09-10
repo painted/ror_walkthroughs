@@ -1,4 +1,4 @@
-Rails App with Postgrsql (using Instagram as example)
+###Rails App with Postgrsql (using Instagram as example)
 <br>
 terminal:  
 ```
