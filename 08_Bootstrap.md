@@ -123,3 +123,22 @@ body {
 }
 ```
 Check out that everything is working at localhost:3000/**controllername**<br>
+Now if you have kept the jumbotron let's change the background image for it<br>
+To do that go to /assets/stylesheets/application.css.scss and add:<br>
+```
+.jumbotron {
+	background: image-url('**imagename**');
+}
+```
+Now make sure to add an image with that name to /assets/images/<br>
+Check the page and make sure that you can see the image<br>
+Now you will see that the text in the image is hard to read<br>
+To fix this go to application.css.scss again and in .jumbotron add:<br>
+```
+.container {
+	background: rgba(255, 255,  255, 0.85);
+	padding: 20px, 50px;
+}
+```
+This will give your text a white background that has an opacity of .85 (85%)<br>
+
