@@ -13,3 +13,26 @@
 **imagename** = The name of the image file including extension.
 **bucketname** = The name you gave to your S3 bucket
 ```
+Go to http://getbootstrap.com and check it out<br>
+For Ruby you will be using Bootstrap Sass<br>
+Add the following to your Gemfile:<br>
+```
+gem 'bootstrap-sass'
+gem 'sass-rails'    (check to make sure you have this)
+```
+Next in /assets/stylesheets/application.css.scss (add scss if it does not already have it) add:<br>
+```
+@import "bootstrap-sprockets";
+@import "bootstrap";
+```
+now in /assets/javascript/application.js add: <br>
+```
+//= require jquery  (check to make sure you have this)
+//= require bootstrap-sprockets
+```
+Now in the terminal run bundle and restart the server:<br>
+```
+bundle
+control c  (the button control)
+rails s
+```
