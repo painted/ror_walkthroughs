@@ -36,7 +36,7 @@ bundle
 control c  (the button control)
 rails s
 ```
-Now go to http://wwww.getbootstrap.com/getting-started/ and go down to exmaples.<br>
+Now go to http://wwww.getbootstrap.com/getting-started/ and go down to examples.<br>
 Click on the example you would like to use, I will be using jumbotron for this walkthrough.<br>
 Now in chrome click view>developer>view source<br>
 Copy all of the source code and paste that into /views/layouts/application.html.erb above the current information<br>
