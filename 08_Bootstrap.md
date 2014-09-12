@@ -141,4 +141,82 @@ To fix this go to application.css.scss again and in .jumbotron add:<br>
 }
 ```
 This will give your text a white background that has an opacity of .85 (85%)<br>
+One of the other great features of bootstrap is the grid system<br>
+The grid is made up of 12 columns.  In order to make this work you must first put eveything that is going to be styled in the grid in a container<br>
+To do this go to /views/**controllername**/index.html.erb and use this:<br>
+```
+<div class='container'>
 
+</div>
+```
+Next you need to take the group of items and put them in a row<br>
+To do this go to the same place and use this:<br>
+```
+<div class='row'>
+
+</div>
+```
+Now for each item you will need to decide the width.<br>
+Remember that the width is made of 12 units, therefore if you want two blocks use 6, four blocks 3, etc.<br>
+To do this you need to go to the same place and put each item in this:<br>
+```
+<div class='col-md-4'>   (This is where you change the number)
+
+</div>
+```
+col in this case means column, md (medium) and 4 is the width out of 12.<br>
+You can also use lg, sm, etc.  These sizes are to do with when the columns break down due to resizing of the screen<br>
+Now lets put each item into a panel<br>
+To do this got to http://getbootstrap.com/components/#panels <br> 
+Copy and paste the example you like (an exmaple follows) into your column:<br>
+```
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel title</h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+```
+Now put the code for the content where it says Panel content<br>
+Put the title where it says Panel title<br>
+If you want to add a footer with this example it would be like this:<br>
+```
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel title</h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
+  <div class="panel-footer">Panel footer</div> 
+</div>
+```
+If you images are overflowing you will need to fix some of the css.<br>
+To do this you will need to go to /assets/stylesheets/application.css.scss and add:<br>
+```
+.panel-body img {
+	max-width: 100%;
+}
+```
+As we are using Sass we can also take advantage of nesting by adding nested items in the panel-body.<br>
+Change the panel body in the application.css.scss to:<br>
+```
+.panel-body {
+	img {
+	max-width: 100%;
+	}
+
+	p {
+		margin-top: 20px;
+	}
+}
+```
+Now lets turn a link into a button<br>
+To do this is very simple wherever you have a link_to you just need to add ", class: 'btn btn-pimary btn-lg'" after the path.<br>
+Here is an example:<br>
+```
+<%= link_to 'New', new_**modelname**_path, class: 'btn btn-primary btn-lg' %>
+```
+Check out http://getbootstrap.com/css/#buttons for examples.
