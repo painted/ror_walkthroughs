@@ -219,4 +219,59 @@ Here is an example:<br>
 ```
 <%= link_to 'New', new_**modelname**_path, class: 'btn btn-primary btn-lg' %>
 ```
-Check out http://getbootstrap.com/css/#buttons for examples.
+Check out http://getbootstrap.com/css/#buttons for examples.<br>
+At this point it would be good to commit to github from the terminal:<br>
+```
+git add .
+git commit -m 'place your commit message here'
+git push
+```
+Now lets link the sign in form from the top of the jumbotron to your devise sign in<br>
+To do this first go to /views/devise/sessions/new.html.erb and copy the form:<br>
+```
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+
+  <div><%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <div><%= f.submit "Sign in" %></div>
+<% end %>
+```
+Then paste that into /views/layouts/application.html.erb inside the div class navbar-collapse collapse and remove the current code in this class<br>
+We then need to change quite a few things as follows:
+```
+Change this line: <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+To: <%= form_for(**Devisemodel**.new, as: :**devisemodel**, url: session_path(**devisemodel**), html: {class: 'navbar-form navbar-right'}) do |f| %>
+
+Change this:  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+To: <div class="form-group">
+  <%= f.email_field :email, placeholder: 'Email', class: 'form-control' %></div>
+
+Change this:  <div><%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+To: <div class="form-group">
+    <%= f.password_field :password, placeholder: 'Password', class: 'form-control', autocomplete: "off" %></div>
+
+Remove this:  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>    To here.
+
+Change this: <div><%= f.submit "Sign in" %></div>
+To: <div><%= f.button "Sign in", class: 'btn btn-success' %></div>
+
+Leave this how it is: <% end %>
+```
+You may want to put an if statement to get rid of the form when someone is already signed in. 
+At this point it would be good to commit to github from the terminal:<br>
+```
+git add .
+git commit -m 'place your commit message here'
+git push
+```
