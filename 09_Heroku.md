@@ -73,7 +73,7 @@ Log in to your account on heroku<br>
 Click on the appname then settings then reveal config variables<br>
 Now manually set all of the necessary variables by clicking on edit<br>
 It should look like this with variables after some of them:<br>
-![Variables](https://www.paintedchef.com/variables.png)
+![Variables](https://www.paintedchef.com/variables.png)<br>
 The ones you will probably need to add or edit are:
 ```
 _SECRET_DEVISE_SECRET_KEY
