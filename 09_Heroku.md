@@ -62,3 +62,56 @@ Now try to push to heroku again:<br>
 ```
 git push heroku master
 ```
+This should now work.<br>
+As long as it does we still need to run some things in the terminal:<br>
+```
+bin/rake heroku:secrets RAILS_ENV=production   (this will take the keys from the secrets file and add them as environment variables)
+heroku config    (this will show you the set variables)
+```
+If the variables have not been set<br>
+Log in to your account on heroku<br>
+Click on the appname then settings then reveal config variables<br>
+Now manually set all of the necessary variables by clicking on edit<br>
+It should look like this with variables after some of them:<br>
+![Variables](https://www.paintedchef.com/variables.png)
+The ones you will probably need to add or edit are:
+```
+_SECRET_DEVISE_SECRET_KEY
+_SECRET_S3_ACCESS_KEY
+_SECRET_S3_SECRET_ACCESS_KEY
+_SECRET_SECRET_KEY_BASE
+_SECRET_KEY_BASE
+```
+You may still have an error with heroku<br>
+The best way to know what is wrong is to add the following gem in the Gemfile:<br>
+```
+gem 'rails_12factor', group: :production
+```
+You will need to do a bundle install and will have to push to heroku:<br>
+```
+bundle
+git add .
+git commit -m 'place your commit message here'
+git push heroku master
+```
+This will give you access to rails errors in heroku<br>
+To check out the error simply do this in the terminal<br>
+```
+heroku logs --tail   (or simply heroku logs)
+```
+You will probably find that the problem is that we have not done a migrate on heroku<br>
+To do the migration do this in the terminal:<br>
+```
+heroku run rake db:migrate
+```
+Now lets try opening the site again from the terminal:<br>
+```
+heroku open
+```
+It should all be working now<br>
+If it did make sure to push to github:<br>
+```
+git push (you have already have a commit that has not been pushed)
+```
+
+
