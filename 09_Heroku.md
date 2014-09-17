@@ -111,7 +111,7 @@ heroku open
 It should all be working now<br>
 If it did make sure to push to github:<br>
 ```
-git push (you have already have a commit that has not been pushed)
+git push (you should already have a commit that has not been pushed if not do the whole process)
 ```
 
 
