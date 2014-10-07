@@ -205,6 +205,14 @@ or we can improve this method by making commas optional using a regular expressi
 		end
 	end
 ```
+Run rspec<br>
+The unit test should pass but the feature test will still fail<br>
+To fix this you need to show the tags on the index.html.erb, add this:<br>
+```
+<p><% **modelname**.tags.each do |tag| %>
+	<%= link_to tag.name, '#' %>
+<% end %></p>
+```
 Run rspec
 It should now pass<br>
 Commit to Github:<br>
