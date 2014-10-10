@@ -26,6 +26,10 @@ Now within the test, development group of the Gemfile add:<br>
 gem 'poltergeist'
 gem 'database_cleaner'
 ```
+You will need to do a bundle install from the terminal:<br>
+```
+bundle
+```
 Then in the /spec/rails_helper.rb add:<br>
 ```
 require 'capybara/poltergeist'
