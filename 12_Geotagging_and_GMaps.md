@@ -71,7 +71,7 @@ describe 'maps' do
 
 		before do 
 		bob = **Devisemodel**.create(email: 'a@example.com', password: '12345678', password_confirmation: '12345678')
-		bob.**controllername.create(title: 'Cool post', description: 'Hello world', address: '25 City Road, London') 
+		bob.**controllername**.create(title: 'Cool post', description: 'Hello world', address: '25 City Road, London') 
 
 		it 'displays a map (needs internet)', js:true do
 			visit '/**controllername**'
@@ -154,7 +154,7 @@ Then in application.js you nedd to add this:<br>
 ```
 Now in application.html.erb you need to add:<br>
 ```
-<script src='htpp://maps.google.com/maps/api/js?sensor=true'></script>
+<script src='http://maps.google.com/maps/api/js?sensor=true'></script>
 ```
 First go to http://hpneo.github.io/gmaps/examples.html and click on basic<br>
 Copy the code on the side<br>
@@ -214,7 +214,7 @@ Add this within the script just below the last info<br>
 Edit this code to interpolate the address like this:<br>
 ```
 GMaps.geocode({
-  address: '<%= @post.address %>',
+  address: '<%= @**modelname**.address %>',
   callback: function(results, status) {
     if (status == 'OK') {
       var latlng = results[0].geometry.location;
@@ -226,6 +226,13 @@ GMaps.geocode({
     }
   }
 });
+```
+You will have to give the map id a height in the application.css.scss file or it will not be shown<br>
+To do this add:<br>
+```
+#map {
+  height: 600px;
+}
 ```
 This will actually works but the code smells<br>
 Lets improve it by using a json<br>
