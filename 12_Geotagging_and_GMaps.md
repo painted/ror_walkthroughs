@@ -16,6 +16,68 @@
 **secretkey** = The secret key that you generated 
 ```
 Lets start with a test<br>
+To do this we will need to install PhantomJS<br>
+Go to the terminal and run this:<br>
+```
+brew install phantomjs
+```
+Now within the test, development group of the Gemfile add:<br>
+```
+gem 'poltergeist'
+gem 'database_cleaner'
+```
+Then in the /spec/rails_helper.rb add:<br>
+```
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+```
+We will need to do one more thing before we can actually write a test<br>
+Still in the /spec/rails_helper we are going to have to change config.use_transactional_fixtures from true to false<br>
+This will make the tests actually write to the database<br>
+Therefore we will need to clean the database after we run each test<br>
+Add this just after the config.use that you just changed:<br>
+```
+	config.before(:suite) do
+		DatabaseCleaner.clean_with(:truncation)
+	end
+
+	config.before(:each) do
+		DatabaseCleaner.strategy = :transaction
+	end
+
+	config.before(:each, :js => true) do
+		DatabaseCleaner.strategy = :truncation
+	end
+
+	config.before(:each) do
+		DatabaseCleaner.start
+	end
+
+	config.after(:each) do
+		DatabaseCleaner.clean
+	end
+```
+Now create maps_feature_spec.rb in spec/features/ with the following information:<br>
+```
+require 'rails_helper'
+
+describe 'maps' do
+
+	context '**controllername** with addresses' do
+
+		before do 
+		bob = **Devisemodel**.create(email: 'a@example.com', password: '12345678', password_confirmation: '12345678')
+		bob.**controllername.create(title: 'Cool post', description: 'Hello world', address: '25 City Road, London') 
+
+		it 'displays a map (needs internet)', js:true do
+			visit '/**controllername**'
+			click_link 'Map'
+
+		end
+	end
+end
+```
+Run rspec<br>
 In the **controllername**_features_spec.rb file add this into the basic form test:<br>
 ```
 fill_in 'Address', with: '25 City Road, London'
@@ -28,14 +90,13 @@ Next in your form add:<br>
 	<%= f.text_area :address %><br>
 ```
 Run rspec<br>
-It will still fail<br>
+It will still have problems<br>
 In the terminal we need to do a migration:<br>
 ```
 bin/rails g migration AddAddressTo**Controllername** address:text
 bin/rake db:migrate
 ```
 Now we need to permit in the controllers/**controllername**.rb by adding , :address to the list<br>
-------------------------- TEST NEEDED ---------------------------------
 We need to create a route<br>
 Go to routes.rb and edit the resources :**controllername** to this:<br>
 ```
@@ -52,6 +113,12 @@ Do this in the terminal:<br>
 ```
 bin/rails g controller maps
 ```
+Now lets update the test to actually be a test by adding:<br>
+```
+expect(page).to have_css '.gm-style'
+```
+Run rspec<br>
+
 Now the problem is there is no show method for the controller<br>
 Go to /controllers/maps_controller.rb and create the show method:<br>
 ```
@@ -246,17 +313,61 @@ Go to /assets/javascripts/maps.js.coffee (rename to be maps.js) file and erase e
 Then add this:<br>
 ```
 $(document).ready(function(){
-	
-	Paste the script here
+	var **modelname**Id = $('#map').data('id');
 
+	if(**modelname**Id){
+		$.get('/**controllername**/' + **modelname**Id + '.json', function(**modelname**){
+
+			var map = new GMaps({
+			  div: '#map',
+			  lat: -12.043333,
+			  lng: -77.028333
+			});
+		GMaps.geocode({
+			address: '<%= @**modelname**.address %>',
+			callback: function(results, status) {
+			    if (status == 'OK') {
+				    var latlng = results[0].geometry.location;
+				    map.setCenter(latlng.lat(), latlng.lng());
+				    map.addMarker({
+				        lat: latlng.lat(),
+				        lng: latlng.lng()
+			    	});
+			    }
+			}
+			});
+		})
+	}
 })
 ```
-This should all work.
+Run rspec<br>
+This should all work.<br>
 As long as it is all working commit to Github:<br>
 ```
 git add .
 git commit -m 'place your commit message here'
 git push
+```
+This test, however, is quite difficult to read so lets improve it by adding:<br>
+```
+expect(page).to have_map
+```
+Run rspec<br>
+You will see that Capybara does not understand has_map?<br>
+So we will have to teach it<br>
+Still in the map_feature_spec.rb file just below require add this:<br>
+```
+class Capybara::Session
+	def has_map?
+		true
+	end
+end
+```
+Run rspec<br>
+Obviously this will pass as we have hard coded true in<br>
+Now remove the true and add:<br>
+```
+has_css?('.gm-style')
 ```
 Now make sure that when you are logged out you can still see the map<br>
 If you can not that is because you are asking for authentication on the show page<br>
@@ -264,6 +375,15 @@ To fix this add this to the list of except items in the **controllername**_contr
 ```
 :show
 ```
+As long as it is all working commit to Github:<br>
+```
+git add .
+git commit -m 'place your commit message here'
+git push
+```
+Lets now just clean this up a little by creating a support folder in the spec folder<br>
+Now create a map_matcher.rb file in this new folder and cut and paste from class to the second end into this file<br>
+Run rspec to make sure it is all still working<br>
 As long as it is all working commit to Github:<br>
 ```
 git add .
