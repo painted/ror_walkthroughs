@@ -1,4 +1,4 @@
-##Stripe (Payment Processing)<br>
+##Facebook Omniauth<br>
 <br>
 ```
 **controllername** = the name of the relevent controller
