@@ -43,7 +43,18 @@ localhost:3000
 Next in config/initializers/devise.rb add with the app id and secret keys:<br>
 ```
 require "omniauth-facebook"
-config.omniauth :facebook, "APP_ID", "APP_SECRET"    ****FIX THIS LATER SECRETS.YML**** 
+config.omniauth :facebook, "APP_ID", "APP_SECRET"
+```
+This would work but it is a very bad practise and the keys are visible to anyone who wants to see them<br>
+Lets quickly fix this before we move forward<br>
+Go to config/secrets.yml and add the secret keys to the file in test, development and production like this:<br>
+```
+fb_app_id: Write APP_ID here
+fb_app_secret: Write APP_SECRET here
+```
+Now back in config/initializers/devise.rb edit the config.omniauth line to read:<br>
+```
+config.omniauth :facebook, Rails.application.secrets.fb_app_id, Rails.application.secrets.fb_app_secret
 ```
 Next go to models/**devisemodel** add this into the list for devise:<br>
 ```
