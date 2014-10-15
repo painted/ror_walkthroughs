@@ -88,9 +88,9 @@ require 'rails_helper'
 
 describe 'orders page' do 
 
-	let(:**modelname**){**Modelname**.new(title: 'Test')}
-	let(:**devisemodel**){**Devisemodel**.new(email: 'b@test.com', password: '12345678', password_confirmation: '12345678')}
-	let(:admin){Admin.new(email: 'a@test.com', password: '12345678', password_confirmation: '12345678')}
+	let(:**modelname**){**Modelname**.create(title: 'Test')}
+	let(:**devisemodel**){**Devisemodel**.create(email: 'b@test.com', password: '12345678', password_confirmation: '12345678')}
+	let(:admin){Admin.create(email: 'a@test.com', password: '12345678', password_confirmation: '12345678')}
 
 	context 'logged in as an admin' do
 		before do 
@@ -208,7 +208,7 @@ bundle
 ```
 We now need to go to https://stripe.com and sign up<br>
 Once you are signed up, sign in and click on Your account + Account settings + API Keys<br>
-Copy the keys in to your secrets.yml file:<br>
+Copy the keys in to your secrets.yml file in all the environments:<br>
 ```
 stripe_secret_key:  Secret key goes here
 stripe_public_key:  Public key goes here
