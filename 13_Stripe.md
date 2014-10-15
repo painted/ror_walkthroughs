@@ -288,3 +288,60 @@ git add .
 git commit -m 'place your commit message here'
 git push
 ```
+Lets now add some extra information to the order<br>
+We should do this by writing a test for the additional information<br>
+In the order_feature_spec.rb file within the context an order edit the before to look like this:<br>
+```
+	before do
+		login_as admin, scope: admin
+		new_years = Date.new(2014, 01, 01)
+
+		Order.create(id: 1, **modelname**:**modelname**, **devisemodel**:**devisemodel**, created_at: new_years)
+		visit '/orders'
+	end
+```
+Then add this test to the context:<br>
+```
+it 'creates an order number' do
+	expect(orders.first.number).to eq '1401010001'
+end
+
+it 'displays an order number' do 
+	expect(page).to have_content '1401010001'
+end
+```
+These tests will fail as the order number is not getting created nor displayed<br>
+To fix this lets set up a method to create an order number<br>
+Go to models/order.rb and add the method for numberL<br>
+```
+def number
+	date_section = created_at.strftime('%y%m%d')
+	number_section = "%04d" % id
+
+	date_section + number_section
+end
+```
+Run rspec and the first test will pass<br>
+This will create an order number but it is still not displaying it<br>
+We now need to display it<br>
+Do this by editing /views/orders/index.html.erb to look like this:<br>
+```
+<div class='container'>
+	<% unless @orders.any? %>
+		No orders yet
+	<% else %>
+		<% @orders.each do |order| %>
+			<p><%= order.**modelname**.title %></p>
+			<p><%= order.**devisemodel**.email %></p>
+			<p><%= order.number %></p>
+		<% end %>
+	<% end %>
+</div>
+```
+Run rspec and everything should be working<br>
+As long as it is all working commit to Github:<br>
+```
+git add .
+git commit -m 'place your commit message here'
+git push
+```
