@@ -284,7 +284,7 @@ Next go back to /maps/show.html.erb and everything in the script with a jquery g
 ```
 Now do this:<br>
 ```
-Edit this line: address: '<%= @post.address %>',
+Edit this line: address: '<%= @**modelname**.address %>',
 To this: address: **modelname**.address,
 ```
 The problem here is that we have hard coded the get item<br>
