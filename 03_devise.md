@@ -78,7 +78,7 @@ Now it would be good to add devise links to pages (for all add to /views/layouts
 	<%= link_to('Edit Account', edit_**devisemodel**_registration_path) %>
 <% else %>
 	<%= link_to('Login', new_**devisemodel**_session_path) %>
-	<%= link_to('Register', new**devisemodel**registration_path) %>
+	<%= link_to('Register', new_**devisemodel**_registration_path) %>
 <% end %>
 ```
 Now one can work on getting the test to pass. In /controllers/**controllername**_controller in new method add:<br>

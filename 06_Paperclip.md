@@ -20,7 +20,7 @@ it 'can add a photo to our **controllername**' do
 	visit '/**controllername**/new'
 	fill_in '**Field**', with: 'Example'
 	fill_in '**Field2**', with: 'Example2'
-	attach_file '**Field3**, Rails.root.join('spec/images/**imagename**')
+	attach_file '**Field3**', Rails.root.join('spec/images/**imagename**')
 	click_button '**Buttonname**'
 
 	expect(current_path).to eq **controllername**_path
