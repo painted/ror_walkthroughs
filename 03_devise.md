@@ -93,7 +93,7 @@ If there are additional places that you want people to be authenticated add:<br>
 ```
 or in the /controllers/**controllername**_controller.rb add:<br>
 ```
-before_action :authenticate_**devisemodel!, except: [:index] (or anything else you want anyone to see)
+before_action :authenticate_**devisemodel**!, except: [:index] (or anything else you want anyone to see)
 ```
 Uncomment out all of the tests in the features spec file.<br>
 Run rspec <br>
