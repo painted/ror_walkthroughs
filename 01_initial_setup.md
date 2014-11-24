@@ -1,4 +1,5 @@
-###Rails App with Postgrsql (using Instagram as example)
+###Rails App with Postgrsql (using Instagram as example)<br>
+Created by [Will Allen, Painted Ltd]
 <br>
 terminal:  
 ```
@@ -106,3 +107,6 @@ in views/posts/index.html.erb modify to: <br>
 ```
 run rspec<br>
 Commit to Github
+
+
+[Will Allen, Painted Ltd]:https://github.com/painted
