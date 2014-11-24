@@ -1,4 +1,6 @@
-###Creating a form once the initial set up has been completed. <br>
+###Creating a form once the initial set up has been completed.
+<br>
+Created by [Will Allen, Painted Ltd]
 <br>
 <br>
 **controllername** = the name of the relevent controller<br>

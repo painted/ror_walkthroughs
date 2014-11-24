@@ -1,4 +1,5 @@
 ###Adding Devise for Login Handling<br>
+Created by [Will Allen, Painted Ltd]
 <br>
 <br>
 ```

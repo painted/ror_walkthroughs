@@ -1,4 +1,5 @@
 ##Basic Sass(SCSS)<br>
+Created by [Will Allen, Painted Ltd]
 <br>
 <br>
 First rename /assets/stylesheets/application.css to /assets/stylesheets/application.css.scss<br>

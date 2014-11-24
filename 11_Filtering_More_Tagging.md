@@ -1,4 +1,5 @@
 ##Filtering (More Tagging)<br>
+Created by [Will Allen, Painted Ltd]
 <br>
 ```
 **controllername** = the name of the relevent controller
