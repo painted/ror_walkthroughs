@@ -55,6 +55,16 @@ Created by [Will Allen, Painted Ltd]
 * [Websockets]
 	* Unlocking the power of Websockets.
 
+###Technologies Used
+
+* Markdown
+
+###Credits
+
+	The first 16 walkthroughs were based on lectures given by [Alex Peattie] during my stay at [Makers Academy] from May 2014 - August 2014.  I thank you very much for your instruction and I really enjoyed my time there.
+
+
+  
 
 [Will Allen, Painted Ltd]:https://github.com/painted
 [Initial Setup]:https://github.com/painted/ror_walkthroughs/blob/master/01_initial_setup.md
@@ -73,4 +83,5 @@ Created by [Will Allen, Painted Ltd]
 [Omniauth]:https://github.com/painted/ror_walkthroughs/blob/master/14_Omniauth.md
 [Emails]:https://github.com/painted/ror_walkthroughs/blob/master/15_Emails.md
 [Websockets]:https://github.com/painted/ror_walkthroughs/blob/master/16_Websockets.md
-
+[Makers Academy]:http://www.makersacademy.com
+[Alex Peattie]:http://alexpeattie.com/
