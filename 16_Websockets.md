@@ -1,4 +1,4 @@
-##Emails<br>
+##Websockets<br>
 Created by [Will Allen, Painted Ltd]
 <br>
 ```
@@ -259,3 +259,8 @@ heroku run rake db:migrate
 heroku restart
 heroku open
 ```
+
+
+
+
+[Will Allen, Painted Ltd]:https://github.com/painted

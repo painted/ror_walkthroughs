@@ -90,3 +90,6 @@ The Rails.logger.warn line has been added so the action is advised in the log<br
 Run rspec<br>
 Now everything should pass.<br>
 Commit to Github
+
+
+[Will Allen, Painted Ltd]:https://github.com/painted

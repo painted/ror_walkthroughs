@@ -82,3 +82,8 @@ AWS.config(:access_key_id => "TESTKEY", :secret_access_key => "TESTSECRET")
 Run rspec<br>
 You will see that the tests run much faster<br>
 Commit to Github
+
+
+
+
+[Will Allen, Painted Ltd]:https://github.com/painted

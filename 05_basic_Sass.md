@@ -41,3 +41,7 @@ a {
 ```
 The only difference that this has given is that the a (links) style can be nested in the class and variables, and extend classes can be created.<br>
 Commit to Github
+
+
+
+[Will Allen, Painted Ltd]:https://github.com/painted

@@ -115,3 +115,8 @@ then: 	<% end %>		afterwards
 Run rspec<br>
 All tests should pass<br>
 Commit to github
+
+
+
+
+[Will Allen, Painted Ltd]:https://github.com/painted

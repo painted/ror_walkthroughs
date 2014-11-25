@@ -61,3 +61,6 @@ bin/rails g migration Add**Field**To**Controllername** **field**:**type**<br>
 bin/rake db:migrate <br>
 You can add more than one field at a time just by adding more **field**:**type** with a space between each one.<br>
 Commit to Github
+
+
+[Will Allen, Painted Ltd]:https://github.com/painted

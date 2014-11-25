@@ -183,3 +183,8 @@ heroku open
 Now test it all out using your email and the 4242 4242 4242 4242 credit card<br>
 Check to see if you get the email<br>
 If so you are good to go!!
+
+
+
+
+[Will Allen, Painted Ltd]:https://github.com/painted
