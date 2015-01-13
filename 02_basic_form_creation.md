@@ -4,12 +4,12 @@ Created by [Will Allen, Painted Ltd]
 <br>
 <br>
 ```
-**controllername** = the name of the relevent controller<br>
-**pagename** = page where you want to view results<br>
-**field** = Whatever field you want to use<br>
-**type** = Examples are text, string, decimal etc<br>
-**buttonname** = Whatever name you give the button<br>
-**modelname** = Usually the name of the controller but singular<br>
+**controllername** = the name of the relevent controller
+**pagename** = page where you want to view results
+**field** = Whatever field you want to use
+**type** = Examples are text, string, decimal etc
+**buttonname** = Whatever name you give the button
+**modelname** = Usually the name of the controller but singular
 **field_type** = Use relevent field type. Options are: check_box, color_field, date_field, datetime_field, datetime_local_field, email_field, file_field, hidden_field, month_field, number_field, password_field, phone_field, range_field, radio_button, search_field, telphone_field, text_area, text_field, time_field, url_field, week_field.
 ```
 <br>
