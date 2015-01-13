@@ -16,7 +16,7 @@ Created by [Will Allen, Painted Ltd]
 <br>
 Please note that when capitalized you should capitalize.<br>
 <br>
-1. create a test in **controllername**_feature_spec.rb:<br>
+Create a test in **controllername**_feature_spec.rb:<br>
 ```
 describe 'creating **controllername**' do
 	it 'adds the **modelname** to the **pagename**'
@@ -29,17 +29,17 @@ describe 'creating **controllername**' do
 	end
 end
 ```
-2. rspec<br>
-3. in **controllername**_controller.rb define a method for new:<br>
+rspec<br>
+in **controllername**_controller.rb define a method for new:<br>
 ```
 def new
 	@**modelname** = **Modelname**.new
 end
 ```
-4. rspec<br>
-5. create new.html.erb in app/views/**controllername**/<br>
-6. rspec<br>
-7. in views/**controllername**/new.html.erb add:<br>
+rspec<br>
+Create new.html.erb in app/views/**controllername**/<br>
+rspec<br>
+In views/**controllername**/new.html.erb add:<br>
 ```
 <%= form_for @**modelname** do |f| %>
 	<%= f.label :**field** %>         (repeat this and next line for each field)
@@ -48,24 +48,24 @@ end
 	<%= f.submit '**buttonname**' %>
 <% end %>
 ```
-8. rspec<br>
-9. in **controllername**_controller.rb create create method:<br>
+rspec<br>
+In **controllername**_controller.rb create create method:<br>
 ```
 def create
 
 end
 ```
-10. rspec<br>
-11. in create method add:<br>
+rspec<br>
+In create method add:<br>
 ```
 @**modelname** = **Modelname**.new(params[:**modelname**].permit(:**field**))  (add all text fields separated by a comma)
 @**modelname**.save!
 redirect_to **controllername**_path
 ```
-12. rspec (should be all clear)<br>
-13. rails s (to see it in your browser)<br>
-14. in browser go to localhost/3000/**controllername** to see a list of the items<br>
-15. in browser go to localhost/3000/**controllername**/new to see the form
+rspec (should be all clear)<br>
+rails s (to see it in your browser)<br>
+In browser go to localhost/3000/**controllername** to see a list of the items<br>
+In browser go to localhost/3000/**controllername**/new to see the form
 <br>
 <br>
 Adding additional fields not already in database<br>
